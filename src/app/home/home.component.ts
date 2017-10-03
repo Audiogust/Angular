@@ -7,25 +7,28 @@ import { RopaService } from '../services/ropa.service';
 })
 export class HomeComponent {
 
-public titulo ="pagina principal Hoa"
+public titulo ="pagina principal Hola"
 
 public listado_ropa: Array<string>;
 public prenda_a_guardar: string;
+public fecha;
+public nombre = "Juan lopez Martinez";
 constructor(
-    private _ropaService: RopaService,
-
-){}
+           private _ropaService: RopaService,
+           )
+{
+    this.fecha = new Date(2016,4,12);
+}
 ngOnInit(){
     this.listado_ropa = this._ropaService.getRopa();
     console.log(this.listado_ropa);
 }
 guardarPrenda(){
     this._ropaService.addRopa(this.prenda_a_guardar);
-    this.prenda_a_guardar = null;
+    this.prenda_a_guardar = null;   
 }
 eliminarPrenda(index: number){
     this._ropaService.deleteRopa(index);
-
 }
 
 }

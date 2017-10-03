@@ -1,5 +1,18 @@
 <h2> {{titulo}} </h2>
 <br/>
+<!--fullDate-->
+{{fecha | date: 'dd/MM/yy' }} 
+-
+{{fecha | date: 'fullDate'  | uppercase | lowercase }}
+-
+{{nombre | lowercase }}
+-
+<br/>
+{{24 | conversor: 5}}
+<br/>
+{{23 | conversor: 8}}
+
+<br/>
 <input type="text" [(ngModel)]="prenda_a_guardar">
 <button (click)="guardarPrenda()"> Añadir </button>
 <p *ngIf="prenda_a_guardar">La prenda a guardar es:
@@ -9,6 +22,6 @@
 <h3>Listado de prendas de ropa</h3>
 <ul>
     <li *ngFor="let prenda of listado_ropa ; let i = index "> 
-       {{i+1}} {{prenda}} <button (click)="eliminarPrenda(i)"> Eliminar </button>
+       {{i+1}}) {{prenda}} <button (click)="eliminarPrenda(i)"> Eliminar </button>
     </li>
 </ul>
